@@ -10,7 +10,7 @@ E.g.:
 - Presence (btdevice in range or not)
 
 ### Example Logfile
-'''
+```
 CPManager.cpp Line: 223 2019-02-16 17:06:26:582 Trying to send a MANDOLYN_SENSOR MESSAGE
 TCPManager.cpp Line: 52 2019-02-16 17:06:26:734 Handled id:17
 TCPManager.cpp Line: 223 2019-02-16 17:06:26:734 Trying to send a MANDOLYN_SENSOR MESSAGE
@@ -58,4 +58,4 @@ TCPManager.cpp Line: 52 2019-02-16 17:08:16:872 Handled id:17
 TCPManager.cpp Line: 223 2019-02-16 17:08:16:872 Trying to send a MANDOLYN_SENSOR MESSAGE
 TCPManager.cpp Line: 52 2019-02-16 17:08:17:025 Handled id:17
 TCPManager.cpp Line: 223 2019-02-16 17:08:17:025 Trying to send a MANDOLYN_SENSOR MESSAGE
-'''
+```
