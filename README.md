@@ -7,7 +7,7 @@ A logg analyzer which shall in the end visualize the logged events of my Homecon
 E.g.:
 - Temperature
 - Humidity
-- Presence (btdevice in range or not)
+- Presence (bluetooth device in range or not) (BTDevice)
 
 ### Example Logfile
 ```
