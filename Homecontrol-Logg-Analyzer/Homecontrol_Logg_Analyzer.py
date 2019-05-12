@@ -1,6 +1,7 @@
 import sys  
 import re
 import datetime
+import matplotlib.pyplot as plt
 from BTDevice import *
 from LoggEntries import *
   
@@ -48,13 +49,13 @@ def readFileTo(filename, loggEntries):
 			line = fp.readline()
 			cnt = cnt + 1 
 
-		for element in loggEntries.entries:
-			print("Type: {}, Timestamp: {}, {}".format(element.type, element.date, element.value.ToString()))
-
-
 def main():
 	#filename = sys.argv[1]
-	readFileTo('c:\LinuxClientLog.txt', LoggEntries())
+    loggEntries = LoggEntries()
+    readFileTo('c:\LinuxClientLog.txt', loggEntries)
+
+    for element in loggEntries.entries:
+        print("Type: {}, Timestamp: {}, {}".format(element.type, element.date, element.value.ToString()))
 
 
 if __name__ == '__main__':
