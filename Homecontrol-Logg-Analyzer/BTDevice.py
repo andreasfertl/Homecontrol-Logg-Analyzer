@@ -3,11 +3,14 @@ class BTDevice:
 		self.name = name
 		self.inRange = inRange
 
+	def ToString(self):
+		return "Name: {}, In Range: {}".format(self.inRange, self.name)
+
 def readInRange(line) -> bool:
 	result = line.find('Yes in Range') 
 	return result != -1
 
-def FindPosition(line, string):
+def findPostion(line, string):
     resultNo = line.find(string)
     if resultNo > 0:
         resultNo = resultNo -1 #skip ' ' 
@@ -22,8 +25,8 @@ def readName(line):
 
     resultBTDevicePostion = line.find(btDeviceIdentifier)
     skipBTDevice = resultBTDevicePostion + btDeviceIdentifierLength + 1
-    resultYes = FindPosition(line, 'Yes in Range')
-    resultNo = FindPosition(line, 'No Not in Range')
+    resultYes = findPostion(line, 'Yes in Range')
+    resultNo = findPostion(line, 'No Not in Range')
 
     if resultBTDevicePostion > 0:
         if resultYes > skipBTDevice:

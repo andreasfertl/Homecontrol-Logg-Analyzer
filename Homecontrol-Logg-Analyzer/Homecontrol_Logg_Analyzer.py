@@ -49,7 +49,7 @@ def readFileTo(filename, loggEntries):
 			cnt = cnt + 1 
 
 		for element in loggEntries.entries:
-			print("Type: {}, Timestamp: {}, Name: {}, In Range: {}".format(element.type, element.date, element.value.inRange, element.value.name))
+			print("Type: {}, Timestamp: {}, {}".format(element.type, element.date, element.value.ToString()))
 
 
 def main():
