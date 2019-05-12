@@ -1,16 +1,9 @@
 import sys  
 import re
 import datetime
-import enum 
+from BTDevice import *
+from LoggEntries import *
   
-# creating enumerations using class 
-class LogMessageType(enum.Enum):
-	NotToHandle = 0
-	BTDevice = 1
-	Temperature = 2
-	Humidity = 3
-
-
 def filterLines(line):
 	if line.find('in Range') != -1:
 		return LogMessageType.BTDevice
@@ -18,7 +11,6 @@ def filterLines(line):
 	#	return True
 	else:
 		return LogMessageType.NotToHandle
-
 
 def findDateAndTimeFrom(line) -> datetime.datetime:
 	match = re.search(r'(\d+-\d+-\d+ \d+:\d+:\d+)',line)
@@ -32,28 +24,37 @@ def findDateAndTimeFrom(line) -> datetime.datetime:
 	else:
 		return datetime.datetime.now()
 
+def handleType(type, date, line) -> Entrie:
+	if type == LogMessageType.BTDevice:
+		return Entrie(type, date, readBTDevice(line))
+	else:
+		return None
 
 
-def readFile(filename):
+
+def readFileTo(filename, loggEntries):
 	with open(filename, mode='r') as fp:  
 		line = fp.readline()
 		cnt = 1
 
 		while line:
-			if filterLines(line) != LogMessageType.NotToHandle:
-				dt = findDateAndTimeFrom(line)
-				print("Line {}: {}".format(cnt, line.strip()))
-				print(dt.year)
+			typeOfEntry = filterLines(line)
+			if  typeOfEntry != LogMessageType.NotToHandle:
+				entrie = handleType(typeOfEntry, findDateAndTimeFrom(line), line)
+				if entrie != None:
+					loggEntries.addEntry(entrie)
 			else:
 				pass
 			line = fp.readline()
 			cnt = cnt + 1 
 
+		for element in loggEntries.entries:
+			print("Type: {}, Timestamp: {}, Name: {}, In Range: {}".format(element.type, element.date, element.value.inRange, element.value.name))
 
 
 def main():
 	#filename = sys.argv[1]
-	readFile('c:\LinuxClientLog.txt')
+	readFileTo('c:\LinuxClientLog.txt', LoggEntries())
 
 
 if __name__ == '__main__':
