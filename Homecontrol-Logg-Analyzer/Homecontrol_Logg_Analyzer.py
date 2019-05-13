@@ -1,10 +1,10 @@
 import sys  
 import re
 import datetime
-import matplotlib.pyplot as plt
 from BTDevice import *
 from LoggEntries import *
-  
+from PlotLoggEntries import *
+
 def filterLines(line):
 	if line.find('in Range') != -1:
 		return LogMessageType.BTDevice
@@ -49,10 +49,13 @@ def readFileTo(filename, loggEntries):
 			line = fp.readline()
 			cnt = cnt + 1 
 
+
 def main():
 	#filename = sys.argv[1]
     loggEntries = LoggEntries()
     readFileTo('c:\LinuxClientLog.txt', loggEntries)
+
+    plotLoggEntries(loggEntries)
 
     for element in loggEntries.entries:
         print("Type: {}, Timestamp: {}, {}".format(element.type, element.date, element.value.ToString()))

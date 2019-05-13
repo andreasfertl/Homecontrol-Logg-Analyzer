@@ -36,5 +36,5 @@ def readName(line):
     return ''
 
 def readBTDevice(line) -> BTDevice:
-	return BTDevice(readInRange(line), readName(line))
+	return BTDevice(readName(line), readInRange(line))
 
