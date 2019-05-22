@@ -1,8 +1,10 @@
 import matplotlib.pyplot as plt
 
 class plotElement:
-    date: str = []
-    value: bool  = []
+
+    def __init__(self):
+        self.date: str = []
+        self.value: bool  = []
 
     def appendElement(self, date, value):
         self.date.append(date)
@@ -10,12 +12,11 @@ class plotElement:
 
 
 class plotElements:
-    name: str
-    elements: plotElement
 
-    def __init__(self, name):
+    def __init__(self, name, date, value):
         self.name = name
         self.elements = plotElement()
+        self.elements.appendElement(date, value)
 
     
 def findName(plotElements, name):
@@ -32,9 +33,7 @@ def plotLoggEntries(loggEntries):
         if index != -1: #do we have it from before? No need to add
             toPlot[index].elements.appendElement(element.date.strftime("%Y-%m-%d %H:%M:%S"), element.value.inRange)
         else:
-            toPlot.append(plotElements(element.value.name))
-            #index of last element is accessable by -1
-            toPlot[-1].elements.appendElement(element.date.strftime("%Y-%m-%d %H:%M:%S"), element.value.inRange)
+            toPlot.append(plotElements(element.value.name, element.date.strftime("%Y-%m-%d %H:%M:%S"), element.value.inRange))
 
     for element in toPlot:
         plt.plot(element.elements.date, element.elements.value)
