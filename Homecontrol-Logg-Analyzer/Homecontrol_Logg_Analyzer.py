@@ -4,12 +4,13 @@ import datetime
 from BTDevice import *
 from LoggEntries import *
 from PlotLoggEntries import *
+from TemperatureHumidity import*
 
 def filterLines(line):
 	if line.find('in Range') != -1:
 		return LogMessageType.BTDevice
-	#elif line.find('MANDOLYN_SENSOR') != -1:
-	#	return True
+	elif line.find('MANDOLYN_SENSOR') != -1:
+		return LogMessageType.TemperatureAndHumidity
 	else:
 		return LogMessageType.NotToHandle
 
@@ -28,10 +29,10 @@ def findDateAndTimeFrom(line) -> datetime.datetime:
 def handleType(type, date, line) -> Entrie:
 	if type == LogMessageType.BTDevice:
 		return Entrie(type, date, readBTDevice(line))
+	elif type == LogMessageType.TemperatureAndHumidity:
+		return Entrie(type, date, TemperatureHumidity(line))
 	else:
 		return None
-
-
 
 def readFileTo(filename, loggEntries):
 	with open(filename, mode='r') as fp:  

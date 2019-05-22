@@ -5,7 +5,7 @@ class LogMessageType(enum.Enum):
 	BTDevice = 1
 	Temperature = 2
 	Humidity = 3
-
+	TemperatureAndHumidity = 4
 
 class Entrie:
 	def __init__(self, type, date, value):
