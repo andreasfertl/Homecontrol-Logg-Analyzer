@@ -17,11 +17,11 @@ BluetoothDevice.cpp Line: 85 2019-02-16 17:06:48:617 BTDevice Ankes iPhone Yes i
 BluetoothManager.cpp Line: 103 2019-02-16 17:06:48:617 -------------------------------------------
 BluetoothDevice.cpp Line: 85 2019-02-16 17:07:16:003 BTDevice TempIphone Yes in Range
 TCPManager.cpp Line: 52 2019-02-16 17:07:16:757 Handled id:17
-TCPManager.cpp Line: 223 2019-02-16 17:07:16:757 Trying to send a MANDOLYN_SENSOR MESSAGE
+TCPManager.cpp Line: 223 2019-02-16 17:07:16:757 Trying to send a MANDOLYN_SENSOR MESSAGE ID: 10 Temp: 15.4 Humidity: 23
 TCPManager.cpp Line: 52 2019-02-16 17:07:16:901 Handled id:17
-TCPManager.cpp Line: 223 2019-02-16 17:07:16:901 Trying to send a MANDOLYN_SENSOR MESSAGE
+TCPManager.cpp Line: 223 2019-02-16 17:07:16:901 Trying to send a MANDOLYN_SENSOR MESSAGE ID: 10 Temp: 15.4 Humidity: 23
 TCPManager.cpp Line: 52 2019-02-16 17:07:17:053 Handled id:17
-TCPManager.cpp Line: 223 2019-02-16 17:07:17:053 Trying to send a MANDOLYN_SENSOR MESSAGE
+TCPManager.cpp Line: 223 2019-02-16 17:07:17:053 Trying to send a MANDOLYN_SENSOR MESSAGE ID: 10 Temp: 15.5 Humidity: 23
 BluetoothDevice.cpp Line: 78 2019-02-16 17:07:23:999 BTDevice Apple Watch von Andreas No Not in Range
 BluetoothDevice.cpp Line: 85 2019-02-16 17:07:26:020 BTDevice Ankes iPhone Yes in Range
 BluetoothManager.cpp Line: 103 2019-02-16 17:07:26:020 -------------------------------------------
@@ -62,5 +62,6 @@ TCPManager.cpp Line: 225 2019-05-13 16:34:50:992 Sending a MANDOLYN_SENSOR MESSA
 TCPManager.cpp Line: 52 2019-05-13 16:34:51:092 Handled id:17
 TCPManager.cpp Line: 225 2019-05-13 16:34:51:093 Sending a MANDOLYN_SENSOR MESSAGE ID: 11 Temp: 23 Humidity: 14
 BluetoothManager.cpp Line: 103 2019-05-13 16:34:57:547 -------------------------------------------
+
 
 ```
